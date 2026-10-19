@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumos AI — The free AI coding agent for your desktop</title>
+  <meta name="description" content="Lumos AI is a free, desktop AI coding agent that works right inside your project folder. Fix bugs, build features, refactor and run tests — all from one beautiful app." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Ambient background -->
+  <div class="bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="grid"></div>
+  </div>
+
+  <!-- Navigation -->
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark"></span>
+        <span>Lumos <strong>AI</strong></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#features">Features</a>
+        <a href="#why">Why Lumos</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#download" class="btn btn-sm btn-primary">Download</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="pill"><span class="dot"></span> 100% free · Version 0.1.0 for Windows</span>
+          <h1>
+            Light up your code with an
+            <span class="gradient-text">AI agent</span>
+            that lives on your desktop.
+          </h1>
+          <p class="lead">
+            Lumos AI is a free coding agent that works right inside your project folder.
+            It reads your code, makes careful edits, runs your builds and tests, and
+            tells you exactly what it changed — no subscriptions, no browser tabs.
+          </p>
+          <div class="hero-cta">
+            <a href="#download" class="btn btn-primary btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+              Download for Windows
+            </a>
+            <a href="#features" class="btn btn-ghost btn-lg">See what it can do</a>
+          </div>
+          <ul class="hero-meta">
+            <li><span>✓</span> Free forever</li>
+            <li><span>✓</span> Works in your folders</li>
+            <li><span>✓</span> Asks before risky changes</li>
+          </ul>
+        </div>
+
+        <!-- App mockup -->
+        <div class="hero-visual">
+          <div class="window" id="demoWindow">
+            <div class="window-bar">
+              <span class="light red"></span><span class="light yellow"></span><span class="light green"></span>
+              <span class="window-title">Lumos AI — my-app</span>
+            </div>
+            <div class="window-body">
+              <aside class="window-side">
+                <div class="side-head">PROJECT</div>
+                <div class="file">📁 src</div>
+                <div class="file indent">📄 app.ts</div>
+                <div class="file indent active">📄 cart.ts</div>
+                <div class="file indent">📄 utils.ts</div>
+                <div class="file">📁 tests</div>
+                <div class="file">📄 package.json</div>
+              </aside>
+              <div class="chat" id="chat">
+                <div class="msg user">The cart total is wrong when a discount is applied. Can you fix it?</div>
+                <div class="msg agent" data-step="1"><span class="tool">read_file</span> src/cart.ts</div>
+                <div class="msg agent" data-step="2"><span class="tool">grep</span> "applyDiscount" — 3 matches</div>
+                <div class="msg agent" data-step="3"><span class="tool edit">edit_file</span> src/cart.ts <span class="diff"><span class="del">-1</span> <span class="add">+3</span></span></div>
+                <div class="msg agent" data-step="4"><span class="tool run">run_command</span> npm test <span class="ok">✓ 42 passed</span></div>
+                <div class="msg agent reply" data-step="5">
+                  Fixed! The discount was applied <em>after</em> tax in <code>cart.ts:58</code>. I moved it before tax and all 42 tests pass. ✨
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="glow-ring" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Logos / stats strip -->
+    <section class="strip">
+      <div class="container strip-inner">
+        <div class="stat"><span class="num">$0</span><span class="label">Price, forever</span></div>
+        <div class="stat"><span class="num">1-click</span><span class="label">Windows installer</span></div>
+        <div class="stat"><span class="num">Any</span><span class="label">Language or framework</span></div>
+        <div class="stat"><span class="num">You</span><span class="label">Stay in control</span></div>
+      </div>
+    </section>
+
+    <!-- What is Lumos -->
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">What is Lumos AI?</span>
+          <h2>A real coding partner, not just autocomplete.</h2>
+          <p>Tell Lumos what you want in plain English. It explores your project, plans the work, makes the changes, and verifies them — the way a thoughtful senior developer would.</p>
+        </div>
+
+        <div class="features">
+          <article class="card feature reveal">
+            <div class="icon">🐛</div>
+            <h3>Fix bugs</h3>
+            <p>Describe the problem and Lumos tracks it down through your code, explains the cause, and applies a focused fix.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="icon">🚀</div>
+            <h3>Build features</h3>
+            <p>From a new page to a full API endpoint, Lumos follows the conventions already in your project so new code fits right in.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="icon">🧹</div>
+            <h3>Refactor safely</h3>
+            <p>Rename, restructure and clean up with confidence. Lumos reads before it edits and keeps changes on-topic.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="icon">🧪</div>
+            <h3>Run builds &amp; tests</h3>
+            <p>Lumos runs your test suite, linter or build after making changes — and fixes what it broke before calling it done.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="icon">🔍</div>
+            <h3>Explain any codebase</h3>
+            <p>New to a project? Ask how something works and get a clear tour with file and line references.</p>
+          </article>
+          <article class="card feature reveal">
+            <div class="icon">⚡</div>
+            <h3>Parallel helpers</h3>
+            <p>For big questions, Lumos sends out research sub-agents that explore different parts of your code at the same time.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why choose -->
+    <section class="section why" id="why">
+      <div class="container why-inner">
+        <div class="why-copy reveal">
+          <span class="eyebrow">Why choose Lumos</span>
+          <h2>Powerful. Respectful. <span class="gradient-text">Free.</span></h2>
+          <p>Most AI coding tools lock their best features behind a monthly bill. Lumos AI gives you a full agent on your own machine, at no cost, with you in the driver's seat.</p>
+
+          <ul class="checklist">
+            <li>
+              <span class="check">✓</span>
+              <div><strong>Completely free.</strong> No trial timer, no credit card, no "pro" tier for the good stuff.</div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div><strong>A native desktop app.</strong> Works directly with the files and tools already on your computer.</div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div><strong>You approve the risky stuff.</strong> Lumos stops and asks before deleting files or anything hard to undo — and you can deny any action.</div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div><strong>Honest reporting.</strong> It shows you real command output and tells you when something failed or wasn't verified.</div>
+            </li>
+            <li>
+              <span class="check">✓</span>
+              <div><strong>Teach it your rules.</strong> Drop a <code>LUMOS.md</code> file in your project to share conventions and instructions.</div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="compare reveal">
+          <div class="compare-head">
+            <span></span>
+            <span class="col-lumos">Lumos AI</span>
+            <span>Typical paid tools</span>
+          </div>
+          <div class="compare-row"><span>Monthly price</span><span class="col-lumos yes">$0</span><span class="muted">$10–$40+</span></div>
+          <div class="compare-row"><span>Edits files in your project</span><span class="col-lumos yes">✓</span><span class="muted">Often</span></div>
+          <div class="compare-row"><span>Runs builds &amp; tests</span><span class="col-lumos yes">✓</span><span class="muted">Sometimes</span></div>
+          <div class="compare-row"><span>Plans with a live to-do list</span><span class="col-lumos yes">✓</span><span class="muted">Rarely</span></div>
+          <div class="compare-row"><span>Parallel research agents</span><span class="col-lumos yes">✓</span><span class="muted">Rarely</span></div>
+          <div class="compare-row"><span>Asks before destructive actions</span><span class="col-lumos yes">✓</span><span class="muted">Varies</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="eyebrow">How it works</span>
+          <h2>From idea to working code in four steps.</h2>
+        </div>
+        <ol class="steps">
+          <li class="step reveal">
+            <span class="step-num">01</span>
+            <h3>Open your project</h3>
+            <p>Point Lumos at any folder on your computer. It instantly gets oriented.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">02</span>
+            <h3>Ask in plain English</h3>
+            <p>"Add dark mode", "why is login slow?", "write tests for utils.ts" — just say it.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">03</span>
+            <h3>Watch it work</h3>
+            <p>Lumos reads, plans, edits and runs commands, showing every step as it goes.</p>
+          </li>
+          <li class="step reveal">
+            <span class="step-num">04</span>
+            <h3>Review the summary</h3>
+            <p>Get a clear recap of what changed, what was tested, and anything left to do.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Download -->
+    <section class="section" id="download">
+      <div class="container">
+        <div class="download card reveal">
+          <div class="download-glow" aria-hidden="true"></div>
+          <div class="download-copy">
+            <span class="eyebrow">Download</span>
+            <h2>Get Lumos AI for free.</h2>
+            <div class="version-badge"><span>Version:</span> 0.1.0</div>
+            <p>One installer, a minute of setup, and you've got an AI coding agent on your desktop.</p>
+            <a href="downloads/LumosCode-Setup-0.1.0.exe" download class="btn btn-primary btn-xl" id="downloadBtn">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M3 5.5 10.5 4.5v7H3zM11.5 4.3 21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zM11.5 12.5H21V21l-9.5-1.3z"/></svg>
+              <span>
+                Download for Windows
+                <small>LumosCode-Setup-0.1.0.exe · 97.4 MB</small>
+              </span>
+            </a>
+            <p class="fine">By downloading you get version 0.1.0. It's free — no account required.</p>
+          </div>
+          <div class="download-info">
+            <div class="info-block">
+              <h4>System requirements</h4>
+              <ul>
+                <li><span>OS</span> Windows 10 or 11 (64-bit)</li>
+                <li><span>Architecture</span> x64</li>
+                <li><span>Disk space</span> 1 GB free</li>
+                <li><span>Network</span> Wi-Fi / internet connection</li>
+                <li><span>Account</span> None required</li>
+              </ul>
+            </div>
+            <div class="info-block">
+              <h4>Release details</h4>
+              <ul>
+                <li><span>Version</span> 0.1.0</li>
+                <li><span>Released</span> October 19, 2026</li>
+                <li><span>Size</span> 97.4 MB</li>
+              </ul>
+            </div>
+            <div class="info-block hash">
+              <h4>SHA-256 checksum</h4>
+              <button class="hash-box" id="hashBtn" title="Click to copy">
+                <code>F115F641A5322F61AF5A4E2B0670520143B40310E360A8402E1BFA42E4E1FFB2</code>
+                <span class="copy-label" id="copyLabel">Copy</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="install-steps reveal">
+          <div><span>1</span> Run <code>LumosCode-Setup-0.1.0.exe</code></div>
+          <div><span>2</span> If SmartScreen appears, click <em>More info → Run anyway</em></div>
+          <div><span>3</span> Open Lumos AI and choose a project folder</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container narrow">
+        <div class="section-head reveal">
+          <span class="eyebrow">FAQ</span>
+          <h2>Questions? Answers.</h2>
+        </div>
+        <div class="faq">
+          <details class="reveal" open>
+            <summary>Is Lumos AI really free?</summary>
+            <p>Yes. Lumos AI is free to download and use. There's no trial period and no paid tier hiding the good features.</p>
+          </details>
+          <details class="reveal">
+            <summary>What can Lumos actually do on my computer?</summary>
+            <p>Inside the project folder you choose, Lumos can read and search files, create and edit code, and run commands like builds, tests and linters. It shows you every action as it happens.</p>
+          </details>
+          <details class="reveal">
+            <summary>Will it delete or break my stuff?</summary>
+            <p>Lumos is designed to be careful: it reads files before changing them, keeps edits focused, and stops to ask before anything destructive or hard to undo. You can also deny any individual action. As always, using Git or keeping backups is a good idea.</p>
+          </details>
+          <details class="reveal">
+            <summary>Which programming languages does it support?</summary>
+            <p>Pretty much all of them — JavaScript, TypeScript, Python, C#, Java, Go, Rust, HTML/CSS and more. Lumos follows whatever conventions and tools your project already uses.</p>
+          </details>
+          <details class="reveal">
+            <summary>Windows says the installer is unrecognized. Is that normal?</summary>
+            <p>Yes — new apps often trigger Windows SmartScreen until they build reputation. Click <em>More info</em> then <em>Run anyway</em>. You can verify the file using the SHA-256 checksum above.</p>
+          </details>
+          <details class="reveal">
+            <summary>Does Lumos AI work offline?</summary>
+            <p>No. Lumos AI needs a Wi-Fi or internet connection to work. You'll also need about 1 GB of free disk space.</p>
+          </details>
+          <details class="reveal">
+            <summary>Is there a Mac or Linux version?</summary>
+            <p>Version 0.1.0 is available for Windows. Keep an eye on this page for other platforms.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section final">
+      <div class="container final-inner reveal">
+        <h2>Say the word. <span class="gradient-text">Lumos.</span></h2>
+        <p>Bring a free, capable AI coding agent to your desktop today.</p>
+        <a href="#download" class="btn btn-primary btn-lg">Download Lumos AI</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="#" class="logo">
+        <span class="logo-mark"></span>
+        <span>Lumos <strong>AI</strong></span>
+      </a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#why">Why Lumos</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <p>© <span id="year">2026</span> Lumos AI. Free AI coding agent for your desktop.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
